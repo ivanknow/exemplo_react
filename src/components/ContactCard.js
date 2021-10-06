@@ -5,7 +5,7 @@ const ContactCard = (props) => {
     const contact = props.item;
 return (
     <div className="item">
-        <img className="ui avatar image" src={avatar} alt="user image"></img>
+        <img className="ui avatar image" src={avatar} alt="user"></img>
         <div className="content">
           <div className="header">
             {contact.name}
