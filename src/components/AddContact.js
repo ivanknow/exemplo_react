@@ -1,4 +1,6 @@
 import React from 'react';
+import history from './history'
+
 
 class AddContact extends React.Component {
 
@@ -13,6 +15,8 @@ class AddContact extends React.Component {
    //console.log(this.state);
    this.props.handleAddContact(this.state);
    this.setState({name:"",email:""});
+   //this.props.history.push("/");
+   history.push('/');
  }
   render() {
     return (<div className="ui main">
