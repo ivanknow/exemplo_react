@@ -5,6 +5,7 @@ import './App.css';
 import Header from './Header';
 import AddContact from './AddContact';
 import ContactList from './ContactList';
+import ContactDetail from './ContactDetail';
 import history from './history';
 
 function App() {
@@ -42,7 +43,9 @@ function App() {
           <Route path="/" exact >
             <ContactList  contacts={contacts} removeContact={handleRemoveContact}></ContactList>
           </Route>
-
+          <Route path="/contact/:id" >
+            <ContactDetail  ></ContactDetail>
+          </Route>
         </Switch>
         {/*<AddContact handleAddContact={handleAddContact}></AddContact>
       <ContactList contacts={contacts} removeContact={handleRemoveContact}></ContactList>*/}
