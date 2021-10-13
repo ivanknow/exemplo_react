@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 
 const ContactCard = (props) => {
     const contact = props.item;
+    //console.log(props);
 return (
     <div className="item">
         <img className="ui avatar image" src={avatar} alt="user"></img>
         <div className="content">
-          <Link to={`contact/${contact.id}`}> 
+        
+        <Link
+          to={{ pathname: `/contact/${contact.id}`, state: { contact: contact } }}
+        >
           <div className="header">
             {contact.name}
           </div>

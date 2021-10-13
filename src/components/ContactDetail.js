@@ -1,29 +1,30 @@
 import React from 'react';
-import avatar from '../images/5352678.jpg';
+import user from '../images/5352678.jpg';
 import { Link } from 'react-router-dom';
 
 const ContactDetail = (props) => {
-  const contact = props.item;
+  const { name, email } = props.location.state.contact;
   return (
     <div className="main">
       <div className="ui card centered">
         <div className="image">
-          <img src={avatar} alt="user"></img>
+          <img src={user} alt="user" />
         </div>
         <div className="content">
-          <div className="header">
-            Ivn
-          </div>
-          <div className="description">
-            ivan@gmail.com
-          </div>
+          <div className="header">{name}</div>
+          <div className="description">{email}</div>
         </div>
       </div>
-
-
-
+      <div className="center-div">
+        <Link to="/">
+          <button className="ui button blue center">
+            Back to Contact List
+          </button>
+        </Link>
+      </div>
     </div>
-  )
-}
+  );
+};
+
 
 export default ContactDetail;

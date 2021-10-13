@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { uuid } from 'uuidv4';
-import {Router as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { uuid } from "uuidv4";
+
 import Header from './Header';
 import AddContact from './AddContact';
 import ContactList from './ContactList';
 import ContactDetail from './ContactDetail';
-import history from './history';
+
 
 function App() {
   const LOCAL_STORAGE_KEY = 'contacts';
@@ -34,18 +34,33 @@ function App() {
   }, [contacts]);
   return (
     <div className="ui container">
-      <Router history={history}> 
+      <Router > 
         <Header></Header>
         <Switch>
           <Route path="/add" >
             <AddContact  handleAddContact={handleAddContact}></AddContact>
           </Route>
-          <Route path="/" exact >
-            <ContactList  contacts={contacts} removeContact={handleRemoveContact}></ContactList>
-          </Route>
-          <Route path="/contact/:id" >
-            <ContactDetail  ></ContactDetail>
-          </Route>
+
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <ContactList
+                {...props}
+                contacts={contacts}
+                getContactId={handleRemoveContact}
+              />
+            )}
+          />
+
+        <Route path="/contact/:id"
+            render={(props) => (
+              <ContactDetail
+                {...props}
+              />
+            )}
+          />
+
         </Switch>
         {/*<AddContact handleAddContact={handleAddContact}></AddContact>
       <ContactList contacts={contacts} removeContact={handleRemoveContact}></ContactList>*/}

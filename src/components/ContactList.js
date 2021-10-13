@@ -3,7 +3,7 @@ import ContactCard from './ContactCard';
 import { Link } from 'react-router-dom';
 
 const ContactList = (props) => {
-  console.log(props);
+  //console.log(props);
   const deleteContact = (id) => { props.removeContact(id); }
   const renderList = props.contacts.map((contact) => {
     return (
